@@ -1,0 +1,6 @@
+.background-img {
+  background-image: "../src/assets/background-img.jpg";
+  width: 100px;
+  height: 100px;
+  background-color: black;
+}

@@ -85,6 +85,7 @@ const NavTopMenu = () => {
           </ul>
         </div>
       </div>
+      <div className="background-img"></div>
     </>
   );
 };
