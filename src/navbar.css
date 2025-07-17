@@ -1,0 +1,15 @@
+.navbar-button:hover {
+  background: #d3d6d7;
+  border-radius: 5px;
+}
+
+.navbar-button {
+  border-radius: 5px;
+  color: black;
+}
+
+.logo {
+  max-height: 100px;
+  height: auto;
+  width: auto;
+}

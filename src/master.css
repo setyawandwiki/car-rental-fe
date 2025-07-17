@@ -1,0 +1,27 @@
+.fw-normal {
+  font-weight: 400;
+}
+
+.fw-normal1 {
+  font-weight: 500;
+}
+
+.fw-normal2 {
+  font-weight: 600;
+}
+
+.fw-bold {
+  font-weight: 700;
+}
+
+.fw-bold2 {
+  font-weight: 800;
+}
+
+.fw-bold3 {
+  font-weight: 900;
+}
+
+.fs-normal {
+  font-size: 14px;
+}
