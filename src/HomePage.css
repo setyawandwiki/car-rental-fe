@@ -1,7 +1,7 @@
 .background-img {
   background-image: url("../src/assets/background-img.jpg");
   background-size: cover;
-  min-height: 70vh;
+  min-height: 100vh;
   position: relative;
   color: white;
   text-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
@@ -15,4 +15,50 @@
   height: 100%;
   width: 100%;
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2));
+}
+
+/* Override warna border */
+.rdrCalendarWrapper {
+  border-radius: 10px;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+  font-family: "Poppins", sans-serif;
+}
+
+/* Warna highlight hari terpilih */
+.rdrDayNumber span {
+  color: #1e1e1e;
+}
+.rdrSelected,
+.rdrStartEdge,
+.rdrEndEdge {
+  background-color: #f36f21 !important; /* Warna oranye Traveloka */
+}
+
+/* Hover effect */
+.rdrDay:hover {
+  background-color: rgba(243, 111, 33, 0.2);
+}
+
+/* Header bulan dan tahun */
+.rdrMonthAndYearPickers select {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Teks hari (Sen, Sel, etc.) */
+.rdrWeekDays {
+  color: #888;
+  font-weight: 500;
+}
+
+.rdrDefinedRangesWrapper {
+  display: none;
+}
+
+.rdrMonthAndYearWrapper {
+  display: none !important;
+}
+
+.rdrMonths {
+  display: none;
 }
