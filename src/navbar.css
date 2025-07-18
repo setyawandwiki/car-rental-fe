@@ -1,11 +1,10 @@
 .navbar-button:hover {
-  background: #d3d6d7;
+  background: rgba(236, 236, 236, 0.2);
   border-radius: 5px;
 }
 
 .navbar-button {
   border-radius: 5px;
-  color: black;
 }
 
 .logo {
