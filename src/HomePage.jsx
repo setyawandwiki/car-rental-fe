@@ -5,6 +5,7 @@ import "react-date-range/dist/theme/default.css"; // theme css file
 import "../src/homePage.css";
 import DateInputField from "./components/homaPage/DateInputField";
 import SearchButton from "./components/homaPage/SearchButton";
+import { format } from "date-fns";
 
 const HomePage = () => {
   const [date, setDate] = useState({
@@ -41,30 +42,28 @@ const HomePage = () => {
           <form className="w-100 d-flex justify-content-center">
             <div className="form-group position-relative" ref={pickerRef}>
               <div className="d-flex">
-                <div className="d-flex ">
-                  <div
-                    className={`w-25 mx-0 d-flex border-input-left bg-white justify-align-center`}
-                  >
-                    <img
-                      className="m-auto"
-                      src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v4.6.0/b/bac1862bc878474d414560fe61746c27.svg"
-                      alt="calendar"
-                    />
-                  </div>
-                  <input
-                    type="text"
-                    readOnly
-                    value={"Cibinong"}
-                    className={`form-control rounded-0 border-input-left w-100`}
-                  />
-                </div>
                 <DateInputField
-                  value={date.startDate}
-                  onClick={() => setShowPicker(!showPicker)}
+                  classLeft={`border-input-left`}
+                  imgSearch={""}
+                  imgIcon={
+                    "https://d1785e74lyxkqq.cloudfront.net/_next/static/v4.6.0/b/bac1862bc878474d414560fe61746c27.svg"
+                  }
+                  value={"Cibinong"}
+                  alt="Search Location"
                 />
                 <DateInputField
-                  value={date.endDate}
+                  value={format(date.startDate, "dd MMM yyyy")}
                   onClick={() => setShowPicker(!showPicker)}
+                  borderInput="border-input"
+                  readOnly={true}
+                  alt="Calendar"
+                />
+                <DateInputField
+                  value={format(date.endDate, "dd MMM yyyy")}
+                  borderInput="border-input"
+                  onClick={() => setShowPicker(!showPicker)}
+                  readOnly={true}
+                  alt="Calendar"
                 />
                 <SearchButton />
               </div>

@@ -35,7 +35,7 @@ const NavTopMenu = () => {
                 <ul className="navbar-nav ms-auto">
                   <li className="nav-item me-2 fw-normal2 fs-normal rounded">
                     <a
-                      className="nav-link active fw-normal2 fs-normal1 rounded navbar-button text-white navbar-button text-white"
+                      className="nav-link active fw-normal1 fs-normal1 rounded navbar-button text-white navbar-button text-white"
                       aria-current="page"
                       href="#"
                     >
@@ -59,7 +59,7 @@ const NavTopMenu = () => {
                   </li>
                   <li className="nav-item dropdown">
                     <a
-                      className="nav-link dropdown-toggle text-white"
+                      className="nav-link fs-normal fw-normal1 dropdown-toggle text-white"
                       href="#"
                       role="button"
                       data-bs-toggle="dropdown"
