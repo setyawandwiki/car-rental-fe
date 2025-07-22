@@ -40,9 +40,10 @@ const HomePage = () => {
       <div className="color-overlay d-flex align-items-end pb-5">
         <div className="container">
           <form className="w-100 d-flex justify-content-center">
-            <div className="form-group position-relative" ref={pickerRef}>
+            <div className="form-group" ref={pickerRef}>
               <div className="d-flex">
                 <DateInputField
+                  label="Your Rental Locatio "
                   classLeft={`border-input-left`}
                   imgSearch={""}
                   imgIcon={
@@ -52,6 +53,7 @@ const HomePage = () => {
                   alt="Search Location"
                 />
                 <DateInputField
+                  label="Rental Start Date"
                   value={format(date.startDate, "dd MMM yyyy")}
                   onClick={() => setShowPicker(!showPicker)}
                   borderInput="border-input"
@@ -59,6 +61,7 @@ const HomePage = () => {
                   alt="Calendar"
                 />
                 <DateInputField
+                  label="Rental End Date"
                   value={format(date.endDate, "dd MMM yyyy")}
                   borderInput="border-input"
                   onClick={() => setShowPicker(!showPicker)}

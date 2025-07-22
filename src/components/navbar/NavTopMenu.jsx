@@ -4,8 +4,8 @@ const NavTopMenu = () => {
   return (
     <>
       <div className="container-fluid border-bottom border-secondary px-0">
-        <div className="row w-100 mx-0 px-0">
-          <div className="col-12">
+        <div className="row w-100 mx-0 px-0 my-0 py-0">
+          <div className="col-12 my-0 mx-0 px-0">
             <div className="container py-2 my-0 py-0 d-flex justify-align-center">
               <div className="row">
                 <div className="col-12"></div>
@@ -17,7 +17,7 @@ const NavTopMenu = () => {
                 <img
                   src={logoRental}
                   alt="logo company"
-                  className="class-fluid logo my-0 py-0"
+                  className="class-fluid w-50 logo my-0 py-0"
                 />
               </a>
               <button
