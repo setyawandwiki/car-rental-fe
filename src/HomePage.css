@@ -87,3 +87,7 @@
   border-left: none;
   border-radius: 15px 0 0 15px;
 }
+
+.radio__button_color {
+  background-color: #0194f3 !important;
+}
