@@ -223,13 +223,73 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <div className="container my-3 d-flex align-items-center gap-2">
-        <img
-          src="https://ik.imagekit.io/tvlk/image/imageResource/2023/05/31/1685509983611-a25f46a53c13da46a43bf8f542076cd2.png?_src=imagekit&tr=q-40,h-24"
-          alt=""
-          style={{ width: "34px", height: "34px", objectFit: "contain" }}
-        />
-        <h1 className="h4 fw-bold mb-0">Maksimalkan rencanamu sesukamu</h1>
+      <div className="container my-3">
+        <div className="row">
+          <div className="col-12 d-flex align-items-center gap-2">
+            <img
+              src="https://ik.imagekit.io/tvlk/image/imageResource/2023/05/31/1685509983611-a25f46a53c13da46a43bf8f542076cd2.png?_src=imagekit&tr=q-40,h-24"
+              alt=""
+              style={{ width: "34px", height: "34px", objectFit: "contain" }}
+            />
+            <h1 className="h4 fw-bold mb-0">Maksimalkan rencanamu sesukamu</h1>
+          </div>
+        </div>
+      </div>
+      <div className="container">
+        <div className="row">
+          <div className="col-3">
+            <div class="card h-100 shadow" style={{ width: "18rem" }}>
+              <img
+                src="https://images.pexels.com/photos/775294/pexels-photo-775294.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                class="card-img-top"
+                alt="..."
+                style={{ height: "200px", objectFit: "cover" }}
+              />
+              <div class="card-body">
+                <h5 class="card-title fs-small fw-bold">Card title</h5>
+              </div>
+            </div>
+          </div>
+          <div className="col-3">
+            <div class="card h-100 shadow" style={{ width: "18rem" }}>
+              <img
+                src="https://images.pexels.com/photos/1645028/pexels-photo-1645028.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                class="card-img-top"
+                alt="..."
+                style={{ height: "200px", objectFit: "cover" }}
+              />
+              <div class="card-body">
+                <h5 class="card-title fs-small fw-bold">Card title</h5>
+              </div>
+            </div>
+          </div>
+          <div className="col-3">
+            <div class="card h-100 shadow" style={{ width: "18rem" }}>
+              <img
+                src="https://images.pexels.com/photos/5416470/pexels-photo-5416470.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                class="card-img-top"
+                alt="..."
+                style={{ height: "200px", objectFit: "cover" }}
+              />
+              <div class="card-body">
+                <h5 class="card-title fs-small fw-bold">Card title</h5>
+              </div>
+            </div>
+          </div>
+          <div className="col-3">
+            <div class="card h-100 shadow" style={{ width: "18rem" }}>
+              <img
+                src="https://images.pexels.com/photos/1050244/pexels-photo-1050244.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                class="card-img-top"
+                alt="..."
+                style={{ height: "200px", objectFit: "cover" }}
+              />
+              <div class="card-body">
+                <h5 class="card-title fs-small fw-bold">Card title</h5>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
