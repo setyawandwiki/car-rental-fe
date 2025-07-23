@@ -1,6 +1,6 @@
 import React from "react";
 import logoRental from "../../assets/logo-car-rental.png";
-const NavTopMenu = () => {
+const NavTopMenu = ({ isScrolled }) => {
   return (
     <>
       <div className="container-fluid border-bottom border-secondary px-0">
@@ -35,7 +35,9 @@ const NavTopMenu = () => {
                 <ul className="navbar-nav ms-auto">
                   <li className="nav-item me-2 fw-normal2 fs-normal rounded">
                     <a
-                      className="nav-link active fw-normal1 fs-normal1 rounded navbar-button text-white navbar-button text-white"
+                      className={`nav-link ${
+                        isScrolled ? `text-dark` : `text-white`
+                      } active fw-normal1 fs-normal1 rounded navbar-button navbar-button`}
                       aria-current="page"
                       href="#"
                     >
@@ -43,23 +45,40 @@ const NavTopMenu = () => {
                     </a>
                   </li>
                   <li className="nav-item me-2 fw-normal1 fs-normal rounded">
-                    <a className="nav-link navbar-button text-white" href="#">
+                    <a
+                      className={`nav-link navbar-button ${
+                        isScrolled ? `text-dark` : `text-white`
+                      }`}
+                      href="#"
+                    >
                       Jadi Mitra
                     </a>
                   </li>
                   <li className="nav-item me-2 fw-normal1 fs-normal">
-                    <a className="nav-link navbar-button text-white" href="#">
+                    <a
+                      className={`nav-link navbar-button ${
+                        isScrolled ? `text-dark` : `text-white`
+                      }`}
+                      href="#"
+                    >
                       For Corporates
                     </a>
                   </li>
                   <li className="nav-item me-2 fw-normal1 fs-normal rounded">
-                    <a className="nav-link navbar-button text-white" href="#">
+                    <a
+                      className={`nav-link navbar-button ${
+                        isScrolled ? `text-dark` : `text-white`
+                      }`}
+                      href="#"
+                    >
                       Pesanan
                     </a>
                   </li>
                   <li className="nav-item dropdown">
                     <a
-                      className="nav-link fs-normal fw-normal1 dropdown-toggle text-white"
+                      className={`nav-link fs-normal fw-normal1 dropdown-toggle ${
+                        isScrolled ? `text-dark` : `text-white`
+                      }`}
                       href="#"
                       role="button"
                       data-bs-toggle="dropdown"
