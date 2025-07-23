@@ -91,3 +91,14 @@
 .radio__button_color {
   background-color: #0194f3 !important;
 }
+
+.icon__destination {
+  width: "34px";
+  height: "34px";
+  object-fit: "contain";
+}
+
+.destination__card {
+  height: "220px";
+  object-fit: "cover";
+}

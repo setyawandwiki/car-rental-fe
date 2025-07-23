@@ -295,9 +295,9 @@ const HomePage = () => {
         <div className="row">
           <div className="col-12 d-flex align-items-center gap-2">
             <img
+              className="icon__destination"
               src="https://ik.imagekit.io/tvlk/image/imageResource/2023/06/01/1685631988109-4e2f068146d14d35aa47c5e9e9add5ff.png?_src=imagekit&tr=q-40,h-24"
               alt=""
-              style={{ width: "34px", height: "34px", objectFit: "contain" }}
             />
             <h1 className="h4 fw-bold mb-0">
               Temukan yang kamu suka di Asia hingga dunia
@@ -317,9 +317,8 @@ const HomePage = () => {
                 src={
                   "https://images.pexels.com/photos/777059/pexels-photo-777059.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 }
-                className="card-img"
-                alt={"Singapura"}
-                style={{ height: "220px", objectFit: "cover" }}
+                className="card-img destination__card"
+                alt="singapore"
               />
               <div
                 className="card-img-overlay d-flex flex-column justify-content-end"
@@ -328,7 +327,7 @@ const HomePage = () => {
                     "linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0,0,0,0.1))",
                 }}
               >
-                <h5 className="fw-bold">Singapura</h5>
+                <h5 className="fw-bold">Singapore</h5>
                 <p className="mb-0">644 accommodations</p>
               </div>
             </div>
@@ -339,9 +338,8 @@ const HomePage = () => {
                 src={
                   "https://images.pexels.com/photos/22804/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500"
                 }
-                className="card-img"
+                className="card-img destination__card"
                 alt={"Singapura"}
-                style={{ height: "220px", objectFit: "cover" }}
               />
               <div
                 className="card-img-overlay d-flex flex-column justify-content-end"
@@ -350,7 +348,7 @@ const HomePage = () => {
                     "linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0,0,0,0.1))",
                 }}
               >
-                <h5 className="fw-bold">Singapura</h5>
+                <h5 className="fw-bold">Malaysia</h5>
                 <p className="mb-0">644 accommodations</p>
               </div>
             </div>
@@ -361,9 +359,8 @@ const HomePage = () => {
                 src={
                   "https://images.pexels.com/photos/358229/pexels-photo-358229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 }
-                className="card-img"
-                alt={"Singapura"}
-                style={{ height: "220px", objectFit: "cover" }}
+                className="card-img destination__card"
+                alt={"Malaysia"}
               />
               <div
                 className="card-img-overlay d-flex flex-column justify-content-end"
@@ -372,7 +369,7 @@ const HomePage = () => {
                     "linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0,0,0,0.1))",
                 }}
               >
-                <h5 className="fw-bold">Singapura</h5>
+                <h5 className="fw-bold">Thailand</h5>
                 <p className="mb-0">644 accommodations</p>
               </div>
             </div>
@@ -383,9 +380,8 @@ const HomePage = () => {
                 src={
                   "https://images.pexels.com/photos/373290/pexels-photo-373290.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 }
-                className="card-img"
-                alt={"Singapura"}
-                style={{ height: "220px", objectFit: "cover" }}
+                className="card-img destination__card"
+                alt={"Thailand"}
               />
               <div
                 className="card-img-overlay d-flex flex-column justify-content-end"
@@ -394,7 +390,7 @@ const HomePage = () => {
                     "linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0,0,0,0.1))",
                 }}
               >
-                <h5 className="fw-bold">Singapura</h5>
+                <h5 className="fw-bold">South Korea</h5>
                 <p className="mb-0">644 accommodations</p>
               </div>
             </div>
@@ -405,9 +401,8 @@ const HomePage = () => {
                 src={
                   "https://images.pexels.com/photos/6456847/pexels-photo-6456847.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 }
-                className="card-img"
-                alt={"Singapura"}
-                style={{ height: "220px", objectFit: "cover" }}
+                className="card-img destination__card"
+                alt={"South Korea"}
               />
               <div
                 className="card-img-overlay d-flex flex-column justify-content-end"
@@ -416,7 +411,7 @@ const HomePage = () => {
                     "linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0,0,0,0.1))",
                 }}
               >
-                <h5 className="fw-bold">Singapura</h5>
+                <h5 className="fw-bold">Hong kong</h5>
                 <p className="mb-0">644 accommodations</p>
               </div>
             </div>
@@ -427,9 +422,8 @@ const HomePage = () => {
                 src={
                   "https://images.pexels.com/photos/402028/pexels-photo-402028.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 }
-                className="card-img"
-                alt={"Singapura"}
-                style={{ height: "220px", objectFit: "cover" }}
+                className="card-img destination__card"
+                alt={"Hong kong"}
               />
               <div
                 className="card-img-overlay d-flex flex-column justify-content-end"
@@ -438,7 +432,7 @@ const HomePage = () => {
                     "linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0,0,0,0.1))",
                 }}
               >
-                <h5 className="fw-bold">Singapura</h5>
+                <h5 className="fw-bold">Japan</h5>
                 <p className="mb-0">644 accommodations</p>
               </div>
             </div>
