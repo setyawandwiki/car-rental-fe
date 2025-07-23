@@ -6,6 +6,7 @@ import "./master.css";
 import { BrowserRouter, Route, Routes } from "react-router";
 import HeaderFooter from "./components/HeaderFooter";
 import HomePage from "./HomePage";
+import Search from "./Search";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -13,6 +14,7 @@ createRoot(document.getElementById("root")).render(
       <Routes>
         <Route path="/" element={<HeaderFooter />}>
           <Route index element={<HomePage />} />
+          <Route path="/search" element={<Search />} />
         </Route>
       </Routes>
     </BrowserRouter>

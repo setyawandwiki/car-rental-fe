@@ -1,0 +1,5 @@
+.search__section {
+  margin-top: -50px;
+  z-index: 1;
+  position: relative;
+}

@@ -36,8 +36,8 @@ const Header = () => {
 
   return (
     <nav className={navbarClass}>
-      <NavTopMenu isScrolled={scrolled} />
-      <NavBottomMenu isScrolled={scrolled} />
+      <NavTopMenu isScrolled={isHomePage ? scrolled : true} />
+      <NavBottomMenu isScrolled={isHomePage ? scrolled : true} />
     </nav>
   );
 };
