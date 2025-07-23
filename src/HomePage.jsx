@@ -291,6 +291,160 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+      <div className="container mt-5 mb-3">
+        <div className="row">
+          <div className="col-12 d-flex align-items-center gap-2">
+            <img
+              src="https://ik.imagekit.io/tvlk/image/imageResource/2023/06/01/1685631988109-4e2f068146d14d35aa47c5e9e9add5ff.png?_src=imagekit&tr=q-40,h-24"
+              alt=""
+              style={{ width: "34px", height: "34px", objectFit: "contain" }}
+            />
+            <h1 className="h4 fw-bold mb-0">
+              Temukan yang kamu suka di Asia hingga dunia
+            </h1>
+          </div>
+        </div>
+      </div>
+      <div class="container my-4">
+        <h3 class="fw-bold mb-5">
+          <i class="bi bi-building"></i> Temukan yang kamu suka di Asia hingga
+          dunia
+        </h3>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div className="card border-0 text-white rounded overflow-hidden position-relative">
+              <img
+                src={
+                  "https://images.pexels.com/photos/777059/pexels-photo-777059.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                }
+                className="card-img"
+                alt={"Singapura"}
+                style={{ height: "220px", objectFit: "cover" }}
+              />
+              <div
+                className="card-img-overlay d-flex flex-column justify-content-end"
+                style={{
+                  background:
+                    "linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0,0,0,0.1))",
+                }}
+              >
+                <h5 className="fw-bold">Singapura</h5>
+                <p className="mb-0">644 accommodations</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div className="card border-0 text-white rounded overflow-hidden position-relative">
+              <img
+                src={
+                  "https://images.pexels.com/photos/22804/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                }
+                className="card-img"
+                alt={"Singapura"}
+                style={{ height: "220px", objectFit: "cover" }}
+              />
+              <div
+                className="card-img-overlay d-flex flex-column justify-content-end"
+                style={{
+                  background:
+                    "linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0,0,0,0.1))",
+                }}
+              >
+                <h5 className="fw-bold">Singapura</h5>
+                <p className="mb-0">644 accommodations</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div className="card border-0 text-white rounded overflow-hidden position-relative">
+              <img
+                src={
+                  "https://images.pexels.com/photos/358229/pexels-photo-358229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                }
+                className="card-img"
+                alt={"Singapura"}
+                style={{ height: "220px", objectFit: "cover" }}
+              />
+              <div
+                className="card-img-overlay d-flex flex-column justify-content-end"
+                style={{
+                  background:
+                    "linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0,0,0,0.1))",
+                }}
+              >
+                <h5 className="fw-bold">Singapura</h5>
+                <p className="mb-0">644 accommodations</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div className="card border-0 text-white rounded overflow-hidden position-relative">
+              <img
+                src={
+                  "https://images.pexels.com/photos/373290/pexels-photo-373290.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                }
+                className="card-img"
+                alt={"Singapura"}
+                style={{ height: "220px", objectFit: "cover" }}
+              />
+              <div
+                className="card-img-overlay d-flex flex-column justify-content-end"
+                style={{
+                  background:
+                    "linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0,0,0,0.1))",
+                }}
+              >
+                <h5 className="fw-bold">Singapura</h5>
+                <p className="mb-0">644 accommodations</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div className="card border-0 text-white rounded overflow-hidden position-relative">
+              <img
+                src={
+                  "https://images.pexels.com/photos/6456847/pexels-photo-6456847.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                }
+                className="card-img"
+                alt={"Singapura"}
+                style={{ height: "220px", objectFit: "cover" }}
+              />
+              <div
+                className="card-img-overlay d-flex flex-column justify-content-end"
+                style={{
+                  background:
+                    "linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0,0,0,0.1))",
+                }}
+              >
+                <h5 className="fw-bold">Singapura</h5>
+                <p className="mb-0">644 accommodations</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div className="card border-0 text-white rounded overflow-hidden position-relative">
+              <img
+                src={
+                  "https://images.pexels.com/photos/402028/pexels-photo-402028.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                }
+                className="card-img"
+                alt={"Singapura"}
+                style={{ height: "220px", objectFit: "cover" }}
+              />
+              <div
+                className="card-img-overlay d-flex flex-column justify-content-end"
+                style={{
+                  background:
+                    "linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0,0,0,0.1))",
+                }}
+              >
+                <h5 className="fw-bold">Singapura</h5>
+                <p className="mb-0">644 accommodations</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
