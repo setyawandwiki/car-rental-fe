@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import HeaderFooter from "./components/HeaderFooter";
 import HomePage from "./HomePage";
 import Search from "./Search";
+import SearchSection from "./components/searchPage/SearchSection";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -14,7 +15,9 @@ createRoot(document.getElementById("root")).render(
       <Routes>
         <Route path="/" element={<HeaderFooter />}>
           <Route index element={<HomePage />} />
-          <Route path="/search" element={<Search />} />
+          <Route path="/search" element={<Search />}>
+            <Route index element={<SearchSection />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>
