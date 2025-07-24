@@ -140,7 +140,49 @@ const RentCar = () => {
               <h1 className="fw-normal text-secondary">Automatic</h1>
             </div>
           </div>
-          <div className="col-6">2</div>
+          <div className="col-6 text-end">
+            <div className="dropdown">
+              <button
+                className="btn btn-light fs-normal fw-bold shadow text-primary dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Urutkan
+              </button>
+              <ul className="dropdown-menu">
+                <li>
+                  <a className="dropdown-item" href="#">
+                    Action
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    Another action
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    Something else here
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <h1 className="h6 fw-bold">Pilih Penyedia Rental</h1>
+        <div className="row">
+          <div className="col-12">
+            <div className="row">
+              <div className="col-6 bg-danger">
+                <h1 className="h6 fw-bold fs-normal">
+                  PT. Bukit Sari Jaya Bali
+                </h1>
+                <i class="bi bi-star"></i>
+              </div>
+              <div className="col-6 bg-primary">2</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
