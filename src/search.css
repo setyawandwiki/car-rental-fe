@@ -3,3 +3,12 @@
   z-index: 1;
   position: relative;
 }
+
+.section__left {
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+.search__section {
+  background: #f2f3f3 !important;
+}
