@@ -10,6 +10,7 @@ import HomePage from "./HomePage";
 import Search from "./Search";
 import SearchSection from "./components/searchPage/SearchSection";
 import RentCar from "./components/RentCar";
+import RentDetail from "./components/RentDetail";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -20,6 +21,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="search" element={<Search />}>
             <Route index element={<SearchSection />} />
             <Route path=":id" element={<RentCar />} />
+            <Route path="detail" element={<RentDetail />} />
           </Route>
         </Route>
       </Routes>

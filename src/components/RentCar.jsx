@@ -170,8 +170,8 @@ const RentCar = () => {
             </div>
           </div>
         </div>
-        <h1 className="h6 fw-bold">Pilih Penyedia Rental</h1>
-        <div className="row shadow my-5 py-4">
+        <h1 className="h6 mt-4 fw-bold">Pilih Penyedia Rental</h1>
+        <div className="row shadow mt-2 mb-4 py-4">
           <div className="col-12">
             <div className="row">
               <div className="col-6">
