@@ -1,48 +1,46 @@
 import React from "react";
+import "../src/login.css";
 
 const Login = () => {
   return (
-    <main className="form-signin">
-      <form>
-        <image
-          className="mb-4"
-          src="/docs/5.0/assets/brand/bootstrap-logo.svg"
-          alt=""
-          width="72"
-          height="57"
-        />
-        <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
-
-        <div className="form-floating">
+    <div className="container d-flex justify-content-center align-items-center vh-100">
+      <form className="border w-50 h-50 border shadow p-5">
+        <h1 className="h4 text-center my-1">Login Page</h1>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">
+            Email address
+          </label>
           <input
             type="email"
-            className="form-control"
-            id="floatingInput"
-            placeholder="name@example.com"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
           />
-          <label for="floatingInput">Email address</label>
+          <div id="emailHelp" class="form-text">
+            We'll never share your email with anyone else.
+          </div>
         </div>
-        <div className="form-floating">
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">
+            Password
+          </label>
           <input
             type="password"
-            className="form-control"
-            id="floatingPassword"
-            placeholder="Password"
+            class="form-control"
+            id="exampleInputPassword1"
           />
-          <label for="floatingPassword">Password</label>
         </div>
-
-        <div className="checkbox mb-3">
-          <label>
-            <input type="checkbox" value="remember-me" /> Remember me
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+          <label class="form-check-label" for="exampleCheck1">
+            Check me out
           </label>
         </div>
-        <button className="w-100 btn btn-lg btn-primary" type="submit">
-          Sign in
+        <button type="submit" class="btn btn-primary">
+          Submit
         </button>
-        <p className="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
       </form>
-    </main>
+    </div>
   );
 };
 

@@ -11,6 +11,7 @@ import Search from "./Search";
 import SearchSection from "./components/searchPage/SearchSection";
 import RentCar from "./components/RentCar";
 import RentDetail from "./components/RentDetail";
+import Login from "./Login";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -24,6 +25,7 @@ createRoot(document.getElementById("root")).render(
             <Route path="detail" element={<RentDetail />} />
           </Route>
         </Route>
+        <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
