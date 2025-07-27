@@ -1,5 +1,6 @@
 import React from "react";
 import logoRental from "../../assets/logo-car-rental.png";
+import { Link } from "react-router";
 const NavTopMenu = ({ isScrolled }) => {
   return (
     <>
@@ -32,7 +33,7 @@ const NavTopMenu = ({ isScrolled }) => {
                 <span className="navbar-toggler-icon"></span>
               </button>
               <div className="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul className="navbar-nav ms-auto">
+                <ul className="navbar-nav ms-auto d-flex justify-content-between w-50">
                   <li className="nav-item me-2 fw-normal2 fs-normal rounded">
                     <a
                       className={`nav-link ${
@@ -74,35 +75,27 @@ const NavTopMenu = ({ isScrolled }) => {
                       Pesanan
                     </a>
                   </li>
-                  <li className="nav-item dropdown">
-                    <a
-                      className={`nav-link fs-normal fw-normal1 dropdown-toggle ${
+                  <li className="nav-item border rounded">
+                    <Link
+                      to="/login"
+                      className={`nav-link navbar-button fw-normal1 fs-normal ${
                         isScrolled ? `text-dark` : `text-white`
                       }`}
                       href="#"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
                     >
-                      Dropdown link
-                    </a>
-                    <ul className="dropdown-menu">
-                      <li>
-                        <a className="dropdown-item" href="#">
-                          Action
-                        </a>
-                      </li>
-                      <li>
-                        <a className="dropdown-item" href="#">
-                          Another action
-                        </a>
-                      </li>
-                      <li>
-                        <a className="dropdown-item" href="#">
-                          Something else here
-                        </a>
-                      </li>
-                    </ul>
+                      Login
+                    </Link>
+                  </li>
+                  <li className="nav-item bg-primary rounded">
+                    <Link
+                      to="/register"
+                      className={`nav-link navbar-button fw-normal1 fs-normal ${
+                        isScrolled ? `text-dark` : `text-white`
+                      }`}
+                      href="#"
+                    >
+                      Register
+                    </Link>
                   </li>
                 </ul>
               </div>
