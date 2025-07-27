@@ -1,7 +1,9 @@
 import React from "react";
 import logoRental from "../../assets/logo-car-rental.png";
 import { Link } from "react-router";
+import { useSelector } from "react-redux";
 const NavTopMenu = ({ isScrolled }) => {
+  const email = useSelector((state) => state.auth.email);
   return (
     <>
       <div className="container-fluid border-bottom border-secondary px-0">
@@ -75,28 +77,41 @@ const NavTopMenu = ({ isScrolled }) => {
                       Pesanan
                     </a>
                   </li>
-                  <li className="nav-item border rounded">
-                    <Link
-                      to="/login"
-                      className={`nav-link navbar-button fw-normal1 fs-normal ${
+                  {email ? (
+                    <a
+                      className={`nav-link navbar-button ${
                         isScrolled ? `text-dark` : `text-white`
                       }`}
                       href="#"
                     >
-                      Login
-                    </Link>
-                  </li>
-                  <li className="nav-item bg-primary rounded">
-                    <Link
-                      to="/register"
-                      className={`nav-link navbar-button fw-normal1 fs-normal ${
-                        isScrolled ? `text-dark` : `text-white`
-                      }`}
-                      href="#"
-                    >
-                      Register
-                    </Link>
-                  </li>
+                      {email}
+                    </a>
+                  ) : (
+                    <>
+                      <li className="nav-item border rounded">
+                        <Link
+                          to="/login"
+                          className={`nav-link navbar-button fw-normal1 fs-normal ${
+                            isScrolled ? `text-dark` : `text-white`
+                          }`}
+                          href="#"
+                        >
+                          Login
+                        </Link>
+                      </li>
+                      <li className="nav-item bg-primary rounded">
+                        <Link
+                          to="/register"
+                          className={`nav-link navbar-button fw-normal1 fs-normal ${
+                            isScrolled ? `text-dark` : `text-white`
+                          }`}
+                          href="#"
+                        >
+                          Register
+                        </Link>
+                      </li>
+                    </>
+                  )}
                 </ul>
               </div>
             </div>

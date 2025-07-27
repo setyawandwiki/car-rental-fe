@@ -12,23 +12,23 @@ const Login = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const loading = useSelector((state) => {
-    console.log(state);
     state.auth.loading;
+    console.log(state);
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues((prev) => ({ ...prev, [name]: value }));
-    console.log(`${name} : ${value}`);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { email, password } = formValues;
-    console.log("test");
     const result = await dispatch(login({ email, password }));
     if (login.fulfilled.match(result)) {
+      console.log("TEST");
       navigate("/");
     } else {
       console.log(result.payload);

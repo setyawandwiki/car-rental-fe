@@ -3,6 +3,8 @@ import axios from "axios";
 
 const initialState = {
   token: localStorage.getItem("token") || null,
+  role: null,
+  email: null,
   loading: null,
   error: null,
 };
@@ -21,9 +23,8 @@ export const login = createAsyncThunk(
           },
         }
       );
-      console.log(response);
       localStorage.setItem("token", response.data.token);
-      return response.data.token;
+      return response.data;
     } catch (error) {
       console.log(error);
       return rejectWithValue(error.response.data.message);
@@ -47,7 +48,10 @@ const authSlice = createSlice({
         state.error = null;
       })
       .addCase(login.fulfilled, (state, action) => {
-        state.token = action.payload;
+        console.log(action);
+        state.token = action.payload.token;
+        state.email = action.payload.user_response.email;
+        state.role = action.payload.user_response.role;
         state.loading = false;
       })
       .addCase(login.rejected, (state, action) => {
