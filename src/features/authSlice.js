@@ -13,12 +13,19 @@ export const login = createAsyncThunk(
     try {
       const response = await axios.post(
         "http://localhost:8080/api/v1/auth/login",
-        { email, password }
+        { email, password },
+        {
+          withCredentials: true,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
       );
       console.log(response);
       localStorage.setItem("token", response.data.token);
       return response.data.token;
     } catch (error) {
+      console.log(error);
       return rejectWithValue(error.response.data.message);
     }
   }
