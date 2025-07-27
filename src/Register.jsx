@@ -4,7 +4,7 @@ const Register = () => {
   return (
     <div className="container d-flex justify-content-center align-items-center vh-100">
       <form className="border w-50 h-50 border shadow p-5">
-        <h1 className="h4 text-center my-1">Login Page</h1>
+        <h1 className="h4 text-center my-1">Register Page</h1>
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">
             Email address

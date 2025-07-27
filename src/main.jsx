@@ -12,6 +12,7 @@ import SearchSection from "./components/searchPage/SearchSection";
 import RentCar from "./components/RentCar";
 import RentDetail from "./components/RentDetail";
 import Login from "./Login";
+import Register from "./Register";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -26,6 +27,7 @@ createRoot(document.getElementById("root")).render(
           </Route>
         </Route>
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
