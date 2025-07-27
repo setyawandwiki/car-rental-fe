@@ -13,6 +13,7 @@ import RentCar from "./components/RentCar";
 import RentDetail from "./components/RentDetail";
 import Login from "./Login";
 import Register from "./Register";
+import ProtectedRoute from "./utils/ProtectedRoute";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -20,10 +21,12 @@ createRoot(document.getElementById("root")).render(
       <Routes>
         <Route path="/" element={<HeaderFooter />}>
           <Route index element={<HomePage />} />
-          <Route path="search" element={<Search />}>
-            <Route index element={<SearchSection />} />
-            <Route path=":id" element={<RentCar />} />
-            <Route path="detail" element={<RentDetail />} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="search" element={<Search />}>
+              <Route index element={<SearchSection />} />
+              <Route path=":id" element={<RentCar />} />
+              <Route path="detail" element={<RentDetail />} />
+            </Route>
           </Route>
         </Route>
         <Route path="/login" element={<Login />} />
