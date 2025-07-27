@@ -16,6 +16,7 @@ import Register from "./Register";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import { Provider } from "react-redux";
 import store from "./app/store";
+import RedirectRoute from "./RedirectRoute";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -32,8 +33,10 @@ createRoot(document.getElementById("root")).render(
               </Route>
             </Route>
           </Route>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          <Route element={<RedirectRoute />}>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </Provider>
