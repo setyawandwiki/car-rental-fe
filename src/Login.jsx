@@ -15,7 +15,6 @@ const Login = () => {
 
   const loading = useSelector((state) => {
     state.auth.loading;
-    console.log(state);
   });
 
   const handleChange = (e) => {
@@ -28,7 +27,6 @@ const Login = () => {
     const { email, password } = formValues;
     const result = await dispatch(login({ email, password }));
     if (login.fulfilled.match(result)) {
-      console.log("TEST");
       navigate("/");
     } else {
       console.log(result.payload);

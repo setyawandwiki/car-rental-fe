@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import SearchResultList from "./SearchResultList";
 
 const DateInputField = ({
+  setFormValue,
   value,
+  valueSearch = "",
   onClick,
   cssClass = "",
   classLeft = "border-0",
@@ -10,7 +13,27 @@ const DateInputField = ({
   imgIcon = "https://d1785e74lyxkqq.cloudfront.net/_next/static/v4.6.0/8/8a992b71cd9f07c964e49491a3337d36.svg",
   alt = "",
   label = "",
+  name = "",
 }) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormValue((prev) => ({ ...prev, [name]: value }));
+    fetchData(valueSearch);
+  };
+
+  const [results, setResults] = useState([]);
+
+  const fetchData = (value) => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => response.json())
+      .then((json) => {
+        const results = json.filter((user) => {
+          return user && user.name && user.name.toLowerCase().includes(value);
+        });
+        setResults(results);
+      });
+  };
+
   return (
     <>
       <div className="d-flex flex-column">
@@ -29,11 +52,14 @@ const DateInputField = ({
             type="text"
             readOnly={readOnly}
             onClick={onClick}
+            name={name}
             value={value}
+            onChange={handleChange}
             className={`form-control rounded-0  ${cssClass} ${classLeft}`}
             alt={alt}
           />
         </div>
+        {valueSearch ? <SearchResultList results={results} /> : <></>}
       </div>
     </>
   );

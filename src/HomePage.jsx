@@ -15,6 +15,12 @@ const HomePage = () => {
   });
   const [showPicker, setShowPicker] = useState(false);
 
+  const [formValues, setFormValue] = useState({
+    search: "",
+    startDate: "",
+    endDate: "",
+  });
+
   const pickerRef = useRef();
 
   const handleChange = (ranges) => {
@@ -70,28 +76,34 @@ const HomePage = () => {
                     </div>
                     <div className="d-flex">
                       <DateInputField
+                        name="search"
                         label="Your Rental Locatio "
                         classLeft={`border-input-left`}
                         imgSearch={""}
+                        setFormValue={setFormValue}
                         imgIcon={
                           "https://d1785e74lyxkqq.cloudfront.net/_next/static/v4.6.0/b/bac1862bc878474d414560fe61746c27.svg"
                         }
-                        value={"Cibinong"}
+                        valueSearch={formValues.search}
                         alt="Search Location"
                       />
                       <DateInputField
+                        name="startDate"
                         label="Rental Start Date"
                         value={format(date.startDate, "dd MMM yyyy")}
                         onClick={() => setShowPicker(!showPicker)}
                         borderInput="border-input"
+                        setFormValue={setFormValue}
                         readOnly={true}
                         alt="Calendar"
                       />
                       <DateInputField
+                        name="endDate"
                         label="Rental End Date"
                         value={format(date.endDate, "dd MMM yyyy")}
                         borderInput="border-input"
                         onClick={() => setShowPicker(!showPicker)}
+                        setFormValue={setFormValue}
                         readOnly={true}
                         alt="Calendar"
                       />
