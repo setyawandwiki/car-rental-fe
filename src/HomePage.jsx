@@ -25,10 +25,9 @@ const HomePage = () => {
 
   const handleChange = (ranges) => {
     setDate(ranges.selection);
-    setShowPicker(false); // auto close on select
+    setShowPicker(false);
   };
 
-  // close on outside click
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (pickerRef.current && !pickerRef.current.contains(e.target)) {

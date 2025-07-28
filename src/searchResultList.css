@@ -9,3 +9,12 @@
   max-height: 300px;
   overflow-y: scroll;
 }
+
+.search-result {
+  padding: 10px 20px;
+}
+
+.search-result:hover {
+  background-color: #efefef;
+  cursor: pointer;
+}

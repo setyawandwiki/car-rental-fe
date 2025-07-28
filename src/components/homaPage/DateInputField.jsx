@@ -17,7 +17,10 @@ const DateInputField = ({
 }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormValue((prev) => ({ ...prev, [name]: value }));
+    setFormValue((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
     fetchData(valueSearch);
   };
 
@@ -28,7 +31,11 @@ const DateInputField = ({
       .then((response) => response.json())
       .then((json) => {
         const results = json.filter((user) => {
-          return user && user.name && user.name.toLowerCase().includes(value);
+          return (
+            user &&
+            user.name &&
+            user.name.toLowerCase().includes(value.toLowerCase())
+          );
         });
         setResults(results);
       });
@@ -59,7 +66,15 @@ const DateInputField = ({
             alt={alt}
           />
         </div>
-        {valueSearch ? <SearchResultList results={results} /> : <></>}
+        {valueSearch ? (
+          <SearchResultList
+            valueSearch={valueSearch}
+            setFormValue={setFormValue}
+            results={results}
+          />
+        ) : (
+          <></>
+        )}
       </div>
     </>
   );
