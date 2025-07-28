@@ -6,6 +6,7 @@ import "../src/homePage.css";
 import DateInputField from "./components/homaPage/DateInputField";
 import SearchButton from "./components/homaPage/SearchButton";
 import { format } from "date-fns";
+import SearchInputField from "./components/homaPage/SearchInputField";
 
 const HomePage = () => {
   const [date, setDate] = useState({
@@ -73,8 +74,8 @@ const HomePage = () => {
                         Driver
                       </label>
                     </div>
-                    <div className="d-flex">
-                      <DateInputField
+                    <div className="d-flex ">
+                      <SearchInputField
                         name="search"
                         label="Your Rental Locatio "
                         classLeft={`border-input-left`}
@@ -83,7 +84,7 @@ const HomePage = () => {
                         imgIcon={
                           "https://d1785e74lyxkqq.cloudfront.net/_next/static/v4.6.0/b/bac1862bc878474d414560fe61746c27.svg"
                         }
-                        valueSearch={formValues.search}
+                        value={formValues.search}
                         alt="Search Location"
                       />
                       <DateInputField

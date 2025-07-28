@@ -1,19 +1,21 @@
 import React from "react";
 import "../../../src/searchResultList.css";
 
-const SearchResult = ({ valueSearch, result, setFormValue }) => {
+const SearchResult = ({ setResults, result, setFormValue }) => {
   const handleClick = (value) => {
     setFormValue((prev) => {
-      console.log(prev);
       return { ...prev, search: value };
     });
-    console.log("ini value " + value);
-    console.log("ini value search " + valueSearch);
+    setResults([]);
   };
 
   return (
-    <div className="search-result" onClick={() => handleClick(result.name)}>
+    <div
+      className="search-result border"
+      onClick={() => handleClick(result.name)}
+    >
       {result.name}
+      <h1 className="fs-small fw-bold pt-2">Indonesia</h1>
     </div>
   );
 };

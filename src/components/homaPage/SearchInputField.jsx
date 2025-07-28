@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import SearchResultList from "./SearchResultList";
 
-const DateInputField = ({
+const SearchInputField = ({
+  setFormValue,
   value,
   onClick,
   cssClass = "",
@@ -13,9 +14,35 @@ const DateInputField = ({
   label = "",
   name = "",
 }) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormValue((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+    fetchData(value);
+  };
+
+  const [results, setResults] = useState([]);
+
+  const fetchData = (value) => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => response.json())
+      .then((json) => {
+        const results = json.filter((user) => {
+          return (
+            user &&
+            user.name &&
+            user.name.toLowerCase().includes(value.toLowerCase())
+          );
+        });
+        setResults(results);
+      });
+  };
+
   return (
     <>
-      <div className="d-flex flex-column">
+      <div className="d-flex flex-column search-wrapper">
         <div className="mb-3">
           <label htmlFor="label" className="fs-normal">
             {label}
@@ -33,13 +60,24 @@ const DateInputField = ({
             onClick={onClick}
             name={name}
             value={value}
+            onChange={handleChange}
             className={`form-control rounded-0  ${cssClass} ${classLeft}`}
             alt={alt}
           />
         </div>
+        {value ? (
+          <SearchResultList
+            value={value}
+            setFormValue={setFormValue}
+            results={results}
+            setResults={setResults}
+          />
+        ) : (
+          <></>
+        )}
       </div>
     </>
   );
 };
 
-export default DateInputField;
+export default SearchInputField;
