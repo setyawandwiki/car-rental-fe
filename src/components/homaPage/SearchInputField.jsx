@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SearchResultList from "./SearchResultList";
+import { debounce } from "lodash";
+import { useDispatch } from "react-redux";
 
 const SearchInputField = ({
   setFormValue,
@@ -24,16 +26,19 @@ const SearchInputField = ({
   };
 
   const [results, setResults] = useState([]);
+  const dispatch = useDispatch();
 
   const fetchData = (value) => {
     fetch(`http://localhost:8080/api/v1/city?name=${value}`)
-      .then((response) => response.json())
+      .then((response) => {
+        return response.json();
+      })
       .then((json) => {
-        const results = json.filter((user) => {
+        const results = json.content.filter((val) => {
           return (
-            user &&
-            user.name &&
-            user.name.toLowerCase().includes(value.toLowerCase())
+            val &&
+            val.name &&
+            val.name.toLowerCase().includes(value.toLowerCase())
           );
         });
         setResults(results);
@@ -41,9 +46,17 @@ const SearchInputField = ({
   };
 
   useEffect(() => {
-    setTimeout(() => {
+    const debouncedFetch = debounce(() => {
       fetchData(value);
     }, 300);
+
+    if (value) {
+      debouncedFetch();
+    }
+
+    return () => {
+      debouncedFetch.cancel();
+    };
   }, [value]);
 
   return (
