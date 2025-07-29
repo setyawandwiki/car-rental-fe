@@ -31,20 +31,6 @@ const SearchInputField = ({
   const data = useSelector((state) => state.city.data);
 
   const fetchData = (value) => {
-    // fetch(`http://localhost:8080/api/v1/city?name=${value}`)
-    //   .then((response) => {
-    //     return response.json();
-    //   })
-    //   .then((json) => {
-    //     const results = json.content.filter((val) => {
-    //       return (
-    //         val &&
-    //         val.name &&
-    //         val.name.toLowerCase().includes(value.toLowerCase())
-    //       );
-    //     });
-    //     setResults(results);
-    //   });
     dispatch(getCity({ value }));
     setResults(data);
   };
