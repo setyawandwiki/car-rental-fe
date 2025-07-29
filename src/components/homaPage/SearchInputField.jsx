@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import SearchResultList from "./SearchResultList";
 import { debounce } from "lodash";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getCity } from "../../features/citySlice";
 
 const SearchInputField = ({
   setFormValue,
@@ -27,22 +28,25 @@ const SearchInputField = ({
 
   const [results, setResults] = useState([]);
   const dispatch = useDispatch();
+  const data = useSelector((state) => state.city.data);
 
   const fetchData = (value) => {
-    fetch(`http://localhost:8080/api/v1/city?name=${value}`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((json) => {
-        const results = json.content.filter((val) => {
-          return (
-            val &&
-            val.name &&
-            val.name.toLowerCase().includes(value.toLowerCase())
-          );
-        });
-        setResults(results);
-      });
+    // fetch(`http://localhost:8080/api/v1/city?name=${value}`)
+    //   .then((response) => {
+    //     return response.json();
+    //   })
+    //   .then((json) => {
+    //     const results = json.content.filter((val) => {
+    //       return (
+    //         val &&
+    //         val.name &&
+    //         val.name.toLowerCase().includes(value.toLowerCase())
+    //       );
+    //     });
+    //     setResults(results);
+    //   });
+    dispatch(getCity({ value }));
+    setResults(data);
   };
 
   useEffect(() => {

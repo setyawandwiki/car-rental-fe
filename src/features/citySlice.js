@@ -7,12 +7,12 @@ const initialState = {
   error: null,
 };
 
-export const city = createAsyncThunk(
+export const getCity = createAsyncThunk(
   "city/get",
-  async ({ val }, { rejectWithValue }) => {
+  async (data, { rejectWithValue }) => {
     try {
       const response = await axios.get(
-        `http://localhost:8080/api/v1/city?name=${val}`,
+        `http://localhost:8080/api/v1/city?name=${data.value}`,
         {
           withCredentials: true,
           headers: {
@@ -20,7 +20,6 @@ export const city = createAsyncThunk(
           },
         }
       );
-      console.log(response);
       return response.data;
     } catch (error) {
       console.log(error);
@@ -35,16 +34,15 @@ const citySlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(city.pending, (state) => {
+      .addCase(getCity.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(city.fulfilled, (state, action) => {
-        console.log(action);
-        state.data = action.payload;
+      .addCase(getCity.fulfilled, (state, action) => {
+        state.data = action.payload.content;
         state.loading = false;
       })
-      .addCase(city.rejected, (state, action) => {
+      .addCase(getCity.rejected, (state, action) => {
         state.error = action.payload;
         state.loading = false;
       });
