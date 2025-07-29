@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SearchResultList from "./SearchResultList";
 
 const SearchInputField = ({
@@ -26,7 +26,7 @@ const SearchInputField = ({
   const [results, setResults] = useState([]);
 
   const fetchData = (value) => {
-    fetch("https://jsonplaceholder.typicode.com/users")
+    fetch(`http://localhost:8080/api/v1/city?name=${value}`)
       .then((response) => response.json())
       .then((json) => {
         const results = json.filter((user) => {
@@ -39,6 +39,12 @@ const SearchInputField = ({
         setResults(results);
       });
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      fetchData(value);
+    }, 300);
+  }, [value]);
 
   return (
     <>
