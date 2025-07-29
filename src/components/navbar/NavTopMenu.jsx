@@ -35,7 +35,7 @@ const NavTopMenu = ({ isScrolled }) => {
                 <span className="navbar-toggler-icon"></span>
               </button>
               <div className="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul className="navbar-nav ms-auto d-flex justify-content-between w-50">
+                <ul className="navbar-nav ms-auto d-flex justify-content-between w-75">
                   <li className="nav-item me-2 fw-normal2 fs-normal rounded">
                     <a
                       className={`nav-link ${
