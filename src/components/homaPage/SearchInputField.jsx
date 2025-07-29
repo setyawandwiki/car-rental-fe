@@ -28,6 +28,7 @@ const SearchInputField = ({
 
   const [results, setResults] = useState([]);
   const dispatch = useDispatch();
+
   const data = useSelector((state) => state.city.data);
 
   const fetchData = (value) => {
