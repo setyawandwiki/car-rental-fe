@@ -18,15 +18,19 @@ const HomePage = () => {
 
   const [formValues, setFormValue] = useState({
     search: "",
+    type: "Manual",
     startDate: "",
     endDate: "",
   });
 
   const pickerRef = useRef();
 
-  const handleChange = (ranges) => {
-    setDate(ranges.selection);
-    setShowPicker(false);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormValue((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   useEffect(() => {
@@ -54,24 +58,35 @@ const HomePage = () => {
                       className="btn-group btn-group-toggle w-25 mb-3"
                       data-toggle="buttons"
                     >
-                      <label className="btn btn-primary active fs-normal fw-bold">
+                      <label
+                        className={`btn btn-primary ${
+                          formValues.type === "Manual" ? "active" : null
+                        } fs-normal fw-bold`}
+                      >
                         <input
                           type="radio"
-                          name="options"
-                          id="option1"
-                          autocomplete="off"
-                          checked
-                        />{" "}
-                        Without Driver
+                          name="type"
+                          value="Manual"
+                          autoComplete="off"
+                          checked={formValues.type === "Manual"}
+                          onChange={handleChange}
+                        />
+                        Manual
                       </label>
-                      <label className="btn btn-primary fs-normal fw-bold">
+                      <label
+                        className={`btn btn-primary ${
+                          formValues.type === "Automatic" ? "active" : null
+                        } fs-normal fw-bold`}
+                      >
                         <input
                           type="radio"
-                          name="options"
-                          id="option3"
-                          autocomplete="off"
-                        />{" "}
-                        Driver
+                          name="type"
+                          value="Automatic"
+                          autoComplete="off"
+                          checked={formValues.type === "Automatic"}
+                          onChange={handleChange}
+                        />
+                        Automatic
                       </label>
                     </div>
                     <div className="d-flex ">
