@@ -7,6 +7,7 @@ import DateInputField from "./components/homaPage/DateInputField";
 import SearchButton from "./components/homaPage/SearchButton";
 import { format } from "date-fns";
 import SearchInputField from "./components/homaPage/SearchInputField";
+import { useDispatch } from "react-redux";
 
 const HomePage = () => {
   const [date, setDate] = useState({
@@ -122,7 +123,7 @@ const HomePage = () => {
                         readOnly={true}
                         alt="Calendar"
                       />
-                      <SearchButton />
+                      <SearchButton formValues={formValues} />
                     </div>
                     {showPicker && (
                       <div className="position-absolute z-3 bg-white mt-2 shadow-sm rounded">

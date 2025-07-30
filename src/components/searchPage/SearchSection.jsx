@@ -1,6 +1,9 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 const SearchSection = () => {
+  const companyCar = useSelector((state) => state.companyCar.data);
+  console.log(companyCar);
   return (
     <div className="container w-75">
       <div className="row">

@@ -1,9 +1,15 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router";
+import { getCompanyCar } from "../../features/companyCar";
 
-const SearchButton = () => {
+const SearchButton = ({ formValues }) => {
+  const dispatch = useDispatch();
+  const handleClick = () => {
+    dispatch(getCompanyCar(formValues));
+  };
   return (
-    <div>
+    <div onClick={handleClick}>
       <div className="mb-3">
         <label htmlFor="" style={{ visibility: "hidden" }}>
           test

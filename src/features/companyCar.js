@@ -2,21 +2,22 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const initialState = {
-  data: [],
+  data: JSON.parse(localStorage.getItem("companyCarData")) || [],
   loading: null,
   error: null,
 };
 
 export const getCompanyCar = createAsyncThunk(
   "car/get",
-  async (data, { rejectWithValue }) => {
+  async (data, { getState, rejectWithValue }) => {
+    const token = getState().auth.token;
     try {
       const response = await axios.get(
-        `http://localhost:8080/api/v1/company-car?city=${data.value}&type=${data.type}`,
+        `http://localhost:8080/api/v1/company-car?city=${data.search}&type=${data.type}`,
         {
-          withCredentials: true,
           headers: {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
           },
         }
       );
@@ -29,7 +30,7 @@ export const getCompanyCar = createAsyncThunk(
 );
 
 const companyCarSlice = createSlice({
-  name: "companyCars",
+  name: "companyCar",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
@@ -41,6 +42,10 @@ const companyCarSlice = createSlice({
       .addCase(getCompanyCar.fulfilled, (state, action) => {
         state.data = action.payload.content;
         state.loading = false;
+        localStorage.setItem(
+          "companyCarData",
+          JSON.stringify(action.payload.content)
+        );
       })
       .addCase(getCompanyCar.rejected, (state, action) => {
         state.error = action.payload;
