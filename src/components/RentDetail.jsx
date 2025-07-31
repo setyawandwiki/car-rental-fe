@@ -1,29 +1,38 @@
 import React from "react";
 import "./rentDetail.css";
+import { useSelector } from "react-redux";
 
 const RentDetail = () => {
+  const companyCarDetail = useSelector((state) => state.companyCar.companyCar);
+  console.log(companyCarDetail);
   return (
     <div className="container my-4 w-75">
       <div className="row shadow rounded overflow-hidden">
         <div className="col-lg-8 p-4">
           <div className="d-flex gap-3">
             <img
-              src="https://ik.imagekit.io/tvlk/image/imageResource/2023/01/26/1674730572253-02af9e48a2bc5b753259d9e71c433652.jpeg?tr=q-75,w-140"
+              src={companyCarDetail.car.image}
               alt="Honda Genio"
               className="img-fluid rounded"
               style={{ width: "160px", height: "auto" }}
             />
             <div>
               <h5 className="fw-bold ">
-                Honda Genio <span className="">(Pool Kuta, area Bandara)</span>
+                {companyCarDetail.car.name}{" "}
+                <span className="">({companyCarDetail.city})</span>
               </h5>
               <p className="lh-lg mb-1 text-secondary fw-bold fs-normal">
-                Disediakan oleh PT. Bukit Sari Jaya Bali
+                Disediakan oleh {companyCarDetail.company.name}{" "}
+                {companyCarDetail.city}
               </p>
               <div className="d-flex gap-3 text-secondary">
-                <span className="fs-small">2 kursi</span>
-                <span className="fs-small">0 bagasi</span>
-                <span className="fs-small">Automatic</span>
+                <span className="fs-small">
+                  {companyCarDetail.car.seats} kursi
+                </span>
+                <span className="fs-small">
+                  {companyCarDetail.car.baggages} bagasi
+                </span>
+                <span className="fs-small">{companyCarDetail.car_type}</span>
                 <span className="fs-small">Tahun 2017+</span>
               </div>
               <div className="mt-2 d-flex gap-2">
@@ -83,12 +92,23 @@ const RentDetail = () => {
         <div className="col-lg-4 border-start p-4 bg-light">
           <div className="mb-3">
             <small className="text-muted fs-small lh-base">oleh</small>
-            <h6 className="fw-bold mb-1 lh-lg mb-3">
-              PT. Bukit Sari Jaya Bali
-            </h6>
+            <div className="d-flex gap-2 mt-2 mb-4">
+              <h6 className="fw-bold mb-1 lh-lg mb-3">
+                {companyCarDetail.company.name}
+              </h6>
+              <img
+                src={companyCarDetail.company.image}
+                style={{ width: "auto", height: "50px" }}
+                alt=""
+              />
+            </div>
             <div className="d-flex align-items-center gap-2">
               <i className="bi bi-star-fill text-primary"></i>
-              <span className="fw-bold">9.1</span>
+              <span className="fw-bold">
+                {companyCarDetail.company.rate
+                  ? companyCarDetail.company.rate
+                  : `3.5 (5.0)`}
+              </span>
               <small className="text-muted">(240 review)</small>
             </div>
             <div className="mt-2">

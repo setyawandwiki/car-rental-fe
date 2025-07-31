@@ -1,10 +1,14 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 
 const RentCar = () => {
   const companyCarDetail = useSelector((state) => state.companyCar.companyCar);
   const companyCar = useSelector((state) => state.companyCar.data);
-  console.log(companyCar);
+  const navigate = useNavigate();
+  const handleClick = (param) => {
+    navigate(`/search/${param}/detail`);
+  };
   return (
     <div>
       <div className="container w-75">
@@ -21,7 +25,7 @@ const RentCar = () => {
           </div>
         </div>
         <div className="row">
-          {companyCar.slice(0, 3).map((val) => {
+          {companyCar?.slice(0, 3).map((val) => {
             return (
               <div className="col-4 shadow rounded p-3 my-2">
                 <div className="row">
@@ -177,6 +181,7 @@ const RentCar = () => {
             </div>
             <div className="col-4 text-end pt-3">
               <button
+                onClick={() => handleClick(companyCarDetail?.id)}
                 className="btn w-100 fw-bold text-white"
                 style={{ background: "#ff5e1f" }}
               >

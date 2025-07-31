@@ -31,7 +31,7 @@ createRoot(document.getElementById("root")).render(
                 <Route path="search" element={<Search />}>
                   <Route index element={<SearchSection />} />
                   <Route path=":id" element={<RentCar />} />
-                  <Route path="detail" element={<RentDetail />} />
+                  <Route path=":id/detail" element={<RentDetail />} />
                 </Route>
               </Route>
             </Route>
