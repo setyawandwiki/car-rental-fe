@@ -1,15 +1,19 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useNavigate } from "react-router";
+import { NavLink, useLocation, useNavigate } from "react-router";
 import { getCompanyCarDetail } from "../../features/companyCar";
 
 const SearchSection = () => {
   const companyCar = useSelector((state) => state.companyCar.data);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const handleClick = (id) => {
     dispatch(getCompanyCarDetail(id));
-    navigate(`/search/${id}`);
+    const searchParams = new URLSearchParams(location.search);
+    const cleanParams = decodeURIComponent(searchParams.toString());
+    navigate(`/search/${id}?${cleanParams.toString()}`);
   };
   return (
     <div className="container w-75">

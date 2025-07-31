@@ -1,13 +1,17 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 
 const RentCar = () => {
   const companyCarDetail = useSelector((state) => state.companyCar.companyCar);
   const companyCar = useSelector((state) => state.companyCar.data);
   const navigate = useNavigate();
+  const location = useLocation();
+
   const handleClick = (param) => {
-    navigate(`/search/${param}/detail`);
+    const searchParams = new URLSearchParams(location.search);
+    const cleanParams = decodeURIComponent(searchParams.toString());
+    navigate(`/search/${param}/detail?${cleanParams}`);
   };
   return (
     <div>

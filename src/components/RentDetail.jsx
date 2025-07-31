@@ -1,38 +1,112 @@
 import React from "react";
 import "./rentDetail.css";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 
 const RentDetail = () => {
-  const companyCarDetail = useSelector((state) => state.companyCar.companyCar);
-  console.log(companyCarDetail);
+  const companyCarDetail = useSelector((state) => state.companyCar?.companyCar);
+  const queryParams = new URLSearchParams(location.search);
+  const token = useSelector((state) => state.auth.token);
+  const navigate = useNavigate();
+
+  const sd = queryParams.get("sd");
+  const ed = queryParams.get("ed");
+  const city = queryParams.get("city");
+
+  const startDate = new Date(sd);
+  const endDate = new Date(ed);
+
+  const timeDiff = endDate.getTime() - startDate.getTime();
+  const dayDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+
+  const totalPrice = dayDiff * companyCarDetail.price;
+
+  const handleOrderAndPayment = async () => {
+    try {
+      const orderPayload = {
+        idCompanyCars: companyCarDetail.id,
+        pickupDate: sd,
+        dropOffDate: ed,
+        pickupLoc: city,
+        dropOffLoc: city,
+      };
+
+      const orderResponse = await fetch("http://localhost:8080/api/v1/orders", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(orderPayload),
+      });
+
+      if (!orderResponse.ok) {
+        throw new Error("Gagal membuat order");
+      }
+
+      const orderData = await orderResponse.json();
+      const orderId = orderData?.id;
+
+      const paymentResponse = await fetch(
+        "http://localhost:8080/api/v1/payments",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ orderId }),
+        }
+      );
+
+      if (!paymentResponse.ok) {
+        throw new Error("Gagal membuat pembayaran");
+      }
+
+      const paymentData = await paymentResponse.json();
+      const invoiceUrl = paymentData?.invoice_url;
+      console.log(invoiceUrl);
+      if (invoiceUrl) {
+        window.open(invoiceUrl, "_blank");
+      } else {
+        throw new Error("Gagal mendapatkan invoice URL");
+      }
+
+      navigate("/");
+    } catch (error) {
+      console.error(error);
+      alert("Terjadi kesalahan saat memproses pembayaran.");
+    }
+  };
+
   return (
     <div className="container my-4 w-75">
       <div className="row shadow rounded overflow-hidden">
         <div className="col-lg-8 p-4">
           <div className="d-flex gap-3">
             <img
-              src={companyCarDetail.car.image}
+              src={companyCarDetail?.car?.image}
               alt="Honda Genio"
               className="img-fluid rounded"
               style={{ width: "160px", height: "auto" }}
             />
             <div>
               <h5 className="fw-bold ">
-                {companyCarDetail.car.name}{" "}
-                <span className="">({companyCarDetail.city})</span>
+                {companyCarDetail?.car?.name}{" "}
+                <span className="">({companyCarDetail?.city})</span>
               </h5>
               <p className="lh-lg mb-1 text-secondary fw-bold fs-normal">
-                Disediakan oleh {companyCarDetail.company.name}{" "}
-                {companyCarDetail.city}
+                Disediakan oleh {companyCarDetail?.company?.name}{" "}
+                {companyCarDetail?.city}
               </p>
               <div className="d-flex gap-3 text-secondary">
                 <span className="fs-small">
-                  {companyCarDetail.car.seats} kursi
+                  {companyCarDetail?.car?.seats} kursi
                 </span>
                 <span className="fs-small">
-                  {companyCarDetail.car.baggages} bagasi
+                  {companyCarDetail?.car?.baggages} bagasi
                 </span>
-                <span className="fs-small">{companyCarDetail.car_type}</span>
+                <span className="fs-small">{companyCarDetail?.car_type}</span>
                 <span className="fs-small">Tahun 2017+</span>
               </div>
               <div className="mt-2 d-flex gap-2">
@@ -75,7 +149,7 @@ const RentDetail = () => {
                 </span>
                 <input
                   type="text"
-                  value={companyCarDetail.city}
+                  value={companyCarDetail?.city}
                   className="form-control fw-normal fs-normal"
                   id="locationInput"
                   placeholder="Ngurah Rai International Airport (DPS) fs-normal"
@@ -95,7 +169,7 @@ const RentDetail = () => {
                 </span>
                 <input
                   type="text"
-                  value={companyCarDetail.city}
+                  value={companyCarDetail?.city}
                   className="form-control fw-normal fs-normal"
                   id="locationInput"
                   placeholder="Ngurah Rai International Airport (DPS) fs-normal"
@@ -139,10 +213,10 @@ const RentDetail = () => {
             <small className="text-muted fs-small lh-base">oleh</small>
             <div className="d-flex gap-2 mt-2 mb-4">
               <h6 className="fw-bold mb-1 lh-lg mb-3">
-                {companyCarDetail.company.name}
+                {companyCarDetail?.company?.name}
               </h6>
               <img
-                src={companyCarDetail.company.image}
+                src={companyCarDetail?.company?.image}
                 style={{ width: "auto", height: "50px" }}
                 alt=""
               />
@@ -150,8 +224,8 @@ const RentDetail = () => {
             <div className="d-flex align-items-center gap-2">
               <i className="bi bi-star-fill text-primary"></i>
               <span className="fw-bold">
-                {companyCarDetail.company.rate
-                  ? companyCarDetail.company.rate
+                {companyCarDetail?.company?.rate
+                  ? companyCarDetail?.company?.rate
                   : `3.5 (5.0)`}
               </span>
               <small className="text-muted">(240 review)</small>
@@ -170,8 +244,11 @@ const RentDetail = () => {
           </div>
           <div className="border-top pt-3">
             <p className="fw-bold mb-1">Harga Total</p>
-            <h4 className="text-danger fw-bold my-3">Rp 140.000</h4>
-            <button className="btn btn-warning w-100 fw-bold text-white">
+            <h4 className="text-danger fw-bold my-3">Rp {totalPrice}</h4>
+            <button
+              onClick={handleOrderAndPayment}
+              className="btn btn-warning w-100 fw-bold text-white"
+            >
               Lanjutkan
             </button>
           </div>

@@ -1,50 +1,48 @@
-import React, { useEffect, useRef, useState } from "react";
-import { DateRangePicker } from "react-date-range";
+import React, { useRef, useState } from "react";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import "../src/homePage.css";
 import DateInputField from "./components/homaPage/DateInputField";
 import SearchButton from "./components/homaPage/SearchButton";
-import { format } from "date-fns";
 import SearchInputField from "./components/homaPage/SearchInputField";
-import { useDispatch } from "react-redux";
 
 const HomePage = () => {
-  const [date, setDate] = useState({
-    startDate: new Date(),
-    endDate: new Date(),
-    key: "selection",
-  });
-  const [showPicker, setShowPicker] = useState(false);
-
-  const [formValues, setFormValue] = useState({
+  const [formValues, setFormValues] = useState({
     search: "",
     type: "Manual",
     startDate: "",
     endDate: "",
   });
 
-  const pickerRef = useRef();
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormValue((prev) => ({
+  const handleDateChange = (field, value) => {
+    const formatted = new Date(value).toISOString().slice(0, 19);
+    setFormValues((prev) => ({
       ...prev,
-      [name]: value,
+      [field]: formatted,
     }));
   };
 
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (pickerRef.current && !pickerRef.current.contains(e.target)) {
-        setShowPicker(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+  const pickerRef = useRef();
+
+  const getDateOnly = (isoString) => {
+    return isoString ? isoString.slice(0, 10) : "";
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    const updatedValue =
+      name === "startDate" || name === "endDate"
+        ? new Date(value).toISOString() // convert ke format ISO lengkap
+        : value;
+
+    setFormValues({
+      ...formValues,
+      [name]: updatedValue,
+    });
+  };
+
+  console.log(formValues);
 
   return (
     <>
@@ -96,7 +94,7 @@ const HomePage = () => {
                         label="Your Rental Locatio "
                         classLeft={`border-input-left`}
                         imgSearch={""}
-                        setFormValue={setFormValue}
+                        setFormValue={setFormValues}
                         imgIcon={
                           "https://d1785e74lyxkqq.cloudfront.net/_next/static/v4.6.0/b/bac1862bc878474d414560fe61746c27.svg"
                         }
@@ -106,36 +104,31 @@ const HomePage = () => {
                       <DateInputField
                         name="startDate"
                         label="Rental Start Date"
-                        value={format(date.startDate, "dd MMM yyyy")}
-                        onClick={() => setShowPicker(!showPicker)}
                         borderInput="border-input"
-                        setFormValue={setFormValue}
-                        readOnly={true}
+                        setFormValue={setFormValues}
+                        value={getDateOnly(formValues.startDate)}
+                        onChange={(e) =>
+                          handleDateChange("startDate", e.target.value)
+                        }
                         alt="Calendar"
                       />
                       <DateInputField
                         name="endDate"
                         label="Rental End Date"
-                        value={format(date.endDate, "dd MMM yyyy")}
                         borderInput="border-input"
-                        onClick={() => setShowPicker(!showPicker)}
-                        setFormValue={setFormValue}
-                        readOnly={true}
+                        setFormValue={setFormValues}
+                        value={getDateOnly(formValues.endDate)}
+                        onChange={(e) =>
+                          handleDateChange("endDate", e.target.value)
+                        }
                         alt="Calendar"
                       />
-                      <SearchButton formValues={formValues} />
+                      <SearchButton
+                        startDate={formValues.startDate}
+                        endDate={formValues.endDate}
+                        formValues={formValues}
+                      />
                     </div>
-                    {showPicker && (
-                      <div className="position-absolute z-3 bg-white mt-2 shadow-sm rounded">
-                        <DateRangePicker
-                          minDate={new Date()}
-                          showMonthArrow={true}
-                          ranges={[date]}
-                          showPreview={false}
-                          onChange={handleChange}
-                        />
-                      </div>
-                    )}
                   </div>
                 </form>
               </div>

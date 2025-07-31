@@ -3,7 +3,7 @@ import axios from "axios";
 
 const initialState = {
   data: JSON.parse(localStorage.getItem("companyCarData")) || [],
-  companyCar: {},
+  companyCar: JSON.parse(localStorage.getItem("companyCarDetail")) || {},
   loading: null,
   error: null,
 };

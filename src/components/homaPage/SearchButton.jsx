@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router";
 import { getCompanyCar } from "../../features/companyCar";
 
-const SearchButton = ({ formValues }) => {
+const SearchButton = ({ formValues, startDate, endDate }) => {
   const dispatch = useDispatch();
   const handleClick = () => {
     dispatch(getCompanyCar(formValues));
@@ -16,7 +16,7 @@ const SearchButton = ({ formValues }) => {
         </label>
       </div>
       <Link
-        to={"/search"}
+        to={`/search?sd=${startDate}&ed=${endDate}&city=${formValues.search}`}
         className="p-2 mx-0 d-flex justify-content-center align-items-center border_radius__input_right"
       >
         <svg
