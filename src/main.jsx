@@ -9,7 +9,7 @@ import HeaderFooter from "./components/HeaderFooter";
 import HomePage from "./HomePage";
 import Search from "./Search";
 import SearchSection from "./components/searchPage/SearchSection";
-import RentCar from "./components/RentCar";
+import RentCar from "./RentCar";
 import RentDetail from "./components/RentDetail";
 import Login from "./Login";
 import Register from "./Register";

@@ -1,9 +1,16 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { NavLink } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { NavLink, useNavigate } from "react-router";
+import { getCompanyCarDetail } from "../../features/companyCar";
 
 const SearchSection = () => {
   const companyCar = useSelector((state) => state.companyCar.data);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const handleClick = (id) => {
+    dispatch(getCompanyCarDetail(id));
+    navigate(`/search/${id}`);
+  };
   return (
     <div className="container w-75">
       <div className="row">
@@ -68,13 +75,13 @@ const SearchSection = () => {
                           >
                             Rp. {val.price} / Hari
                           </p>
-                          <NavLink
-                            to={`/search/${val.id}`}
+                          <button
                             className="btn btn-primary w-50"
                             style={{ background: "#ff5e1f", border: "none" }}
+                            onClick={() => handleClick(val.id)}
                           >
                             Lanjutkan
-                          </NavLink>
+                          </button>
                         </div>
                       </div>
                     </div>
