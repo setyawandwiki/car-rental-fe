@@ -68,14 +68,15 @@ const NavTopMenu = ({ isScrolled }) => {
                     </a>
                   </li>
                   <li className="nav-item me-2 fw-normal1 fs-normal rounded">
-                    <a
+                    <Link
+                      to={"/order"}
                       className={`nav-link navbar-button ${
                         isScrolled ? `text-dark` : `text-white`
                       }`}
                       href="#"
                     >
                       Pesanan
-                    </a>
+                    </Link>
                   </li>
                   {email ? (
                     <a

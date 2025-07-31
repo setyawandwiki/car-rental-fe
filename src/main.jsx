@@ -18,6 +18,7 @@ import { Provider } from "react-redux";
 import store, { persistor } from "./app/store";
 import RedirectRoute from "./RedirectRoute";
 import { PersistGate } from "redux-persist/integration/react";
+import Order from "./Order";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -34,6 +35,7 @@ createRoot(document.getElementById("root")).render(
                   <Route path=":id/detail" element={<RentDetail />} />
                 </Route>
               </Route>
+              <Route path="order" element={<Order />} />
             </Route>
             <Route element={<RedirectRoute />}>
               <Route path="/login" element={<Login />} />
