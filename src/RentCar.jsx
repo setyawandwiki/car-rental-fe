@@ -25,22 +25,22 @@ const RentCar = () => {
           </div>
         </div>
         <div className="row">
-          {companyCar?.slice(0, 3).map((val) => {
+          {companyCar?.slice(0, 3)?.map((val) => {
             return (
               <div className="col-4 shadow rounded p-3 my-2">
                 <div className="row">
                   <div className="col-3">
                     <img
-                      src={val.car.image}
+                      src={val?.car?.image}
                       alt=""
                       className="img-fluid w-100 h-100 object-fit-cover"
                     />
                   </div>
                   <div className="col-9">
                     <h1 className="h6 fw-bold fs-normal">
-                      {val.car.name} ({val.city})
+                      {val?.car?.name} ({val?.city})
                     </h1>
-                    <p className="fw-bold fs-small">Rp. {val.price} /hari</p>
+                    <p className="fw-bold fs-small">Rp. {val?.price} /hari</p>
                     <div className="d-flex gap-2">
                       <div className="baggage d-flex gap-1 align-items-center">
                         <img
@@ -48,7 +48,9 @@ const RentCar = () => {
                           alt=""
                           style={{ height: 24, width: 16 }}
                         />
-                        <p className="fs-normal fw-small">{val.car.baggages}</p>
+                        <p className="fs-normal fw-small">
+                          {val?.car?.baggages}
+                        </p>
                       </div>
                       <div className="baggage d-flex gap-1 align-items-center">
                         <img
@@ -56,7 +58,7 @@ const RentCar = () => {
                           alt=""
                           style={{ height: 24, width: 16 }}
                         />
-                        <p className="fs-normal fw-small">{val.car.seats}</p>
+                        <p className="fs-normal fw-small">{val?.car?.seats}</p>
                       </div>
                     </div>
                   </div>
@@ -72,7 +74,7 @@ const RentCar = () => {
               style={{ width: "150px", height: "100px" }} // misalnya 100x100px
             >
               <img
-                src={companyCarDetail.car.image}
+                src={companyCarDetail?.car?.image}
                 alt=""
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
@@ -80,10 +82,10 @@ const RentCar = () => {
             <div className="detail__selected_car">
               <h1 className="fw-normal text-secondary">Tipe Mobil</h1>
               <h1 className="h6 fw-bold fs-small">
-                {companyCarDetail.car.name} ({companyCarDetail.city})
+                {companyCarDetail?.car?.name} ({companyCarDetail?.city})
               </h1>
               <h1 className="fw-normal text-secondary">
-                {companyCarDetail.car_type}
+                {companyCarDetail?.car_type}
               </h1>
             </div>
           </div>
@@ -124,10 +126,10 @@ const RentCar = () => {
               <div className="col-6">
                 <div className="d-flex jusitfy-content-evenly align-items-center gap-2">
                   <h1 className="h6 fw-bold fs-normal">
-                    {companyCarDetail.company.name}
+                    {companyCarDetail?.company?.name}
                   </h1>
                   <img
-                    src={`${companyCarDetail.company.image}`}
+                    src={`${companyCarDetail?.company?.image}`}
                     alt=""
                     style={{ width: "auto", height: "50px" }}
                   />
@@ -136,8 +138,8 @@ const RentCar = () => {
                 <div className="d-flex gap-2 py-0 my-2 align-items-center">
                   <i className="bi bi-star fw-bold text-primary"></i>
                   <span className="fw-bold text-primary fs-small">
-                    {companyCarDetail.company.rate
-                      ? companyCarDetail.company.rate
+                    {companyCarDetail?.company?.rate
+                      ? companyCarDetail?.company?.rate
                       : "3.5 (5.0)"}
                   </span>
                 </div>
@@ -150,7 +152,7 @@ const RentCar = () => {
                   Rp 140.000
                 </h1>
                 <h1 className="h6 fw-normal fs-small">
-                  Rp {companyCarDetail.price} /hari
+                  Rp {companyCarDetail?.price} /hari
                 </h1>
               </div>
             </div>

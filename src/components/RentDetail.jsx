@@ -62,6 +62,51 @@ const RentDetail = () => {
             </ul>
           </div>
           <div className="mt-4">
+            <div className="mb-4">
+              <label
+                htmlFor="locationInput"
+                className="form-label fw-bold text-dark"
+              >
+                Pick Up Location
+              </label>
+              <div className="input-group">
+                <span className="input-group-text bg-white">
+                  <i class="bi bi-geo-alt-fill"></i>
+                </span>
+                <input
+                  type="text"
+                  value={companyCarDetail.city}
+                  className="form-control fw-normal fs-normal"
+                  id="locationInput"
+                  placeholder="Ngurah Rai International Airport (DPS) fs-normal"
+                />
+              </div>
+            </div>
+            <div className="mb-4">
+              <label
+                htmlFor="locationInput"
+                className="form-label fw-bold text-dark"
+              >
+                Drop off Location
+              </label>
+              <div className="input-group">
+                <span className="input-group-text bg-white">
+                  <i class="bi bi-geo-alt-fill"></i>
+                </span>
+                <input
+                  type="text"
+                  value={companyCarDetail.city}
+                  className="form-control fw-normal fs-normal"
+                  id="locationInput"
+                  placeholder="Ngurah Rai International Airport (DPS) fs-normal"
+                />
+              </div>
+              <textarea
+                className="form-control"
+                rows="3"
+                placeholder="Catatan alamat tambahan (opsional)"
+              ></textarea>
+            </div>
             <h6 className="fw-bold py-3">Informasi Penting</h6>
             <p className="fw-bold mb-1 pb-2">Sebelum Anda pesan</p>
             <ul style={{ listStyle: "circle", color: "black" }}>
@@ -125,7 +170,7 @@ const RentDetail = () => {
           </div>
           <div className="border-top pt-3">
             <p className="fw-bold mb-1">Harga Total</p>
-            <h4 className="text-danger fw-bold">Rp 140.000</h4>
+            <h4 className="text-danger fw-bold my-3">Rp 140.000</h4>
             <button className="btn btn-warning w-100 fw-bold text-white">
               Lanjutkan
             </button>

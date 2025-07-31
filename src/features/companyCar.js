@@ -33,7 +33,6 @@ export const getCompanyCar = createAsyncThunk(
 export const getCompanyCarDetail = createAsyncThunk(
   "companyCarDetail/get",
   async (data, { getState, rejectWithValue }) => {
-    console.log(data);
     const token = getState().auth.token;
     try {
       const response = await axios.get(
@@ -80,7 +79,6 @@ const companyCarSlice = createSlice({
         state.error = null;
       })
       .addCase(getCompanyCarDetail.fulfilled, (state, action) => {
-        console.log(action);
         state.companyCar = action.payload;
         state.loading = false;
         localStorage.setItem(
