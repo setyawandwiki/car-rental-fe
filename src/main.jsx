@@ -34,8 +34,8 @@ createRoot(document.getElementById("root")).render(
                   <Route path=":id" element={<RentCar />} />
                   <Route path=":id/detail" element={<RentDetail />} />
                 </Route>
+                <Route path="order" element={<Order />} />
               </Route>
-              <Route path="order" element={<Order />} />
             </Route>
             <Route element={<RedirectRoute />}>
               <Route path="/login" element={<Login />} />

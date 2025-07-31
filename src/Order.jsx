@@ -1,20 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useNavigate } from "react-router";
-import { getCompanyCarDetail } from "./features/companyCar";
+import { getUserOrder } from "./features/orderSlice";
 
 const Order = () => {
-  const companyCar = useSelector((state) => state.companyCar.data);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const location = useLocation();
+  const data = useSelector((state) => state.order.data);
 
-  const handleClick = (id) => {
-    dispatch(getCompanyCarDetail(id));
-    const searchParams = new URLSearchParams(location.search);
-    const cleanParams = decodeURIComponent(searchParams.toString());
-    navigate(`/search/${id}?${cleanParams.toString()}`);
-  };
+  useEffect(() => {
+    dispatch(getUserOrder());
+
+    const interval = setInterval(() => {
+      dispatch(getUserOrder());
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [dispatch]);
+
   return (
     <div>
       <div className="container-fluid" style={{ zIndex: 0 }}>
@@ -49,15 +50,15 @@ const Order = () => {
       </div>
       <div className="container w-75">
         <div className="row">
-          {companyCar
-            ? companyCar.map((val) => {
+          {data
+            ? data.map((val) => {
                 return (
                   <>
                     <div className="col-12 rounded shadow my-3">
                       <div className="row py-3">
                         <div className="col-2">
                           <img
-                            src={`${val.car.image}`}
+                            src={`${val.car_response.image}`}
                             alt=""
                             className="img-fluid w-100 h-100 object-fit-cover"
                           />
@@ -65,7 +66,7 @@ const Order = () => {
                         <div className="col-6">
                           <div className="title">
                             <h1 className="h6 fw-bold">
-                              {val.car.name} {`(${val.city})`}
+                              {val.car_response.name} {`(${val.pickup_loc})`}
                             </h1>
                           </div>
                           <div className="car__type d-flex align-items-center gap-2">
@@ -75,7 +76,7 @@ const Order = () => {
                               style={{ height: 24, width: 16 }}
                             />
                             <p className="fs-normal fw-normal1">
-                              {val.car_type}
+                              {val.company_response.name}
                             </p>
                           </div>
                           <div className="description d-flex gap-3">
@@ -86,7 +87,7 @@ const Order = () => {
                                 style={{ height: 24, width: 16 }}
                               />
                               <p className="fs-normal fw-normal1">
-                                {val.car.baggages} baggages
+                                {val.car_response.baggages} baggages
                               </p>
                             </div>
                             <div className="baggage d-flex gap-2 align-items-center">
@@ -96,7 +97,7 @@ const Order = () => {
                                 style={{ height: 24, width: 16 }}
                               />
                               <p className="fs-normal fw-normal1">
-                                {val.car.seats} seats
+                                {val.car_response.seats} seats
                               </p>
                             </div>
                           </div>
@@ -110,14 +111,18 @@ const Order = () => {
                               className="py-3 fw-bold"
                               style={{ color: "#ff5e1f" }}
                             >
-                              Rp. {val.price} / Hari
+                              Price Rp. {val.price_total}
                             </p>
                             <button
-                              className="btn btn-primary w-50"
-                              style={{ background: "#ff5e1f", border: "none" }}
-                              onClick={() => handleClick(val.id)}
+                              className={`p-3 rounded text-white fw-bold fs-normal ${
+                                val.status === "PAID"
+                                  ? "bg-success"
+                                  : "bg-secondary"
+                              } w-50`}
+                              style={{ border: "none" }}
+                              // onClick={() => handleClick(val.id)}
                             >
-                              Lanjutkan
+                              {val.status === "PAID" ? "PAID" : "PENDING"}
                             </button>
                           </div>
                         </div>

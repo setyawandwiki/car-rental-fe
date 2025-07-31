@@ -3,6 +3,7 @@ import "../src/login.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { login } from "../src/features/authSlice";
+import { getUserOrder } from "./features/orderSlice";
 
 const Login = () => {
   const [formValues, setFormValues] = useState({
@@ -26,6 +27,7 @@ const Login = () => {
     e.preventDefault();
     const { email, password } = formValues;
     const result = await dispatch(login({ email, password }));
+    dispatch(getUserOrder());
     if (login.fulfilled.match(result)) {
       navigate("/");
     } else {

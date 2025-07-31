@@ -1,7 +1,7 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import authReducer from "../features/authSlice";
 import cityReducer from "../features/citySlice";
-import orderReducer from "../features/citySlice";
+import orderReducer from "../features/orderSlice";
 import companyCarReducer from "../features/companyCar";
 import storage from "redux-persist/lib/storage";
 import persistReducer from "redux-persist/es/persistReducer";
