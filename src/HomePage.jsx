@@ -168,9 +168,9 @@ const HomePage = () => {
                 </div>
                 <div className="w-100 border-bottom pb-3">
                   <h5 className="fs-normal fw-bold lh-lg">
-                    Diskon s.d Rp 240rb
+                    Discount until Rp 240rb
                   </h5>
-                  <p className="lh-base fs-small">min. transaksi Rp 2 juta</p>
+                  <p className="lh-base fs-small">min. payment Rp 2 juta</p>
                 </div>
               </div>
               <div className="p-3 d-flex gap-2 align-items-center">
@@ -178,7 +178,7 @@ const HomePage = () => {
                   className="fs-normal fw-bold lh-lg w-100 p-1"
                   style={{ background: "#f7f9fa" }}
                 >
-                  JALANYUK
+                  COME GO
                 </h5>
                 <button className="btn btn-primary fs-small btn__round fw-bold">
                   Copy
@@ -205,7 +205,7 @@ const HomePage = () => {
                   className="fs-normal fw-bold lh-lg w-100 p-1"
                   style={{ background: "#f7f9fa" }}
                 >
-                  JALANYUK
+                  COME GO
                 </h5>
                 <button className="btn btn-primary fs-small btn__round fw-bold">
                   Copy
@@ -224,9 +224,9 @@ const HomePage = () => {
                 </div>
                 <div className="w-100 border-bottom pb-3">
                   <h5 className="fs-normal fw-bold lh-lg">
-                    Diskon s.d 8% Xperience
+                    Discount until 8% experience
                   </h5>
-                  <p className="lh-base fs-small">min. transaksi Rp 300rb</p>
+                  <p className="lh-base fs-small">min. payment Rp 300rb</p>
                 </div>
               </div>
               <div className="p-3 d-flex gap-2 align-items-center">
@@ -234,7 +234,7 @@ const HomePage = () => {
                   className="fs-normal fw-bold lh-lg w-100 p-1"
                   style={{ background: "#f7f9fa" }}
                 >
-                  JALANYUK
+                  COME GO
                 </h5>
                 <button className="btn btn-primary fs-small btn__round fw-bold">
                   Copy
@@ -252,7 +252,7 @@ const HomePage = () => {
               alt=""
               style={{ width: "34px", height: "34px", objectFit: "contain" }}
             />
-            <h1 className="h4 fw-bold mb-0">Maksimalkan rencanamu sesukamu</h1>
+            <h1 className="h4 fw-bold mb-0">maximize your plans as you like</h1>
           </div>
         </div>
       </div>
@@ -321,15 +321,15 @@ const HomePage = () => {
               alt=""
             />
             <h1 className="h4 fw-bold mb-0">
-              Temukan yang kamu suka di Asia hingga dunia
+              Find what you love in Asia and the world
             </h1>
           </div>
         </div>
       </div>
       <div class="container my-4">
         <h3 class="fw-bold mb-5">
-          <i class="bi bi-building"></i> Temukan yang kamu suka di Asia hingga
-          dunia
+          <i class="bi bi-building"></i> Find what you love in Asia and the
+          world
         </h3>
         <div class="row g-4">
           <div class="col-md-4">

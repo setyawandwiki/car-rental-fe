@@ -44,7 +44,7 @@ const NavTopMenu = ({ isScrolled }) => {
                       aria-current="page"
                       href="#"
                     >
-                      Promo
+                      Deals
                     </a>
                   </li>
                   <li className="nav-item me-2 fw-normal1 fs-normal rounded">
@@ -54,7 +54,7 @@ const NavTopMenu = ({ isScrolled }) => {
                       }`}
                       href="#"
                     >
-                      Jadi Mitra
+                      Partnership
                     </a>
                   </li>
                   <li className="nav-item me-2 fw-normal1 fs-normal">
@@ -75,7 +75,7 @@ const NavTopMenu = ({ isScrolled }) => {
                       }`}
                       href="#"
                     >
-                      Pesanan
+                      Orders
                     </Link>
                   </li>
                   {email ? (

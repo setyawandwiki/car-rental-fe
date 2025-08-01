@@ -28,7 +28,7 @@ const NavBottomMenu = ({ isScrolled }) => {
                         } navbar-button`}
                         href="#"
                       >
-                        Tiket Pesawat
+                        Flights
                       </a>
                     </li>
                     <li className=" py-1 nav-item me-2 fw-normal1 fs-normal">
@@ -38,7 +38,7 @@ const NavBottomMenu = ({ isScrolled }) => {
                         } navbar-button`}
                         href="#"
                       >
-                        Tiket Kreta Api
+                        Transportation
                       </a>
                     </li>
                     <li className=" py-1 nav-item me-2 fw-normal1 fs-normal rounded">
@@ -48,7 +48,7 @@ const NavBottomMenu = ({ isScrolled }) => {
                         } navbar-button`}
                         href="#"
                       >
-                        Tiket Bus & Travel
+                        Bus & Travel
                       </a>
                     </li>
                     <li className=" py-1 nav-item me-2 fw-normal1 fs-normal rounded">
@@ -58,7 +58,7 @@ const NavBottomMenu = ({ isScrolled }) => {
                         } navbar-button`}
                         href="#"
                       >
-                        Antar Jemput Bandara
+                        Airport
                       </a>
                     </li>
                     <li className=" py-1 nav-item me-2 fw-normal1 fs-normal">
@@ -68,7 +68,7 @@ const NavBottomMenu = ({ isScrolled }) => {
                         } navbar-button`}
                         href="#"
                       >
-                        Rental Mobil
+                        Car Rental
                       </a>
                     </li>
                     <li className=" py-1 nav-item me-2 fw-normal1 fs-normal rounded">
@@ -78,7 +78,7 @@ const NavBottomMenu = ({ isScrolled }) => {
                         } navbar-button`}
                         href="#"
                       >
-                        Atraksi dan aktivitas
+                        Activity
                       </a>
                     </li>
                   </ul>
